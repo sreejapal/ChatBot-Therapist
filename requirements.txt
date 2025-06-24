@@ -1,0 +1,18 @@
+# Dependencies go here
+langchain
+chromadb
+ollama
+openai
+gradio
+tiktoken
+matplotlib
+pandas
+langchain-chroma
+langchain 
+langchain-core 
+langchain-community 
+langchain-ollama 
+flask
+psutil
+requests
+

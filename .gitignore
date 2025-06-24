@@ -1,0 +1,18 @@
+venv/
+__pycache__/
+*.pyc
+*.log
+*.sqlite
+data/
+*.zip
+# Ollama and model weights
+*.bin
+*.gguf
+*.ggml
+*.safetensors
+models/**/*.gguf
+models/**/*.bin
+
+# Model download cache (if any)
+~/.cache/
+
