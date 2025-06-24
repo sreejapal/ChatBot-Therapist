@@ -66,23 +66,44 @@ def search_chat_history(query):
     return "\n\n".join([f"🧍 {u}\n🤖 {b}" for u, b in results])
 
 def chatbot_ui():
-    with gr.Blocks(theme=gr.themes.Soft()) as demo:
-        gr.Markdown("# 🤖 ChatbotTherapy")
-        gr.Markdown("Talk to your offline AI therapist. Reflect, heal, grow.")
+    custom_theme = gr.themes.Base(
+        primary_hue="orange",
+        secondary_hue="teal",
+        neutral_hue="slate",
+        font=["Inter", "Segoe UI", "sans-serif"],
+        font_mono=["Fira Mono", "Consolas", "monospace"]
+    )
+    with gr.Blocks(theme=custom_theme, css="""
+        body { background: linear-gradient(135deg, #f8fafc 0%, #fbeee6 100%); }
+        .gr-box, .gr-textbox, .gr-button { box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-radius: 10px; }
+        .gr-textbox { border: 1.5px solid #fbbf24; }
+        .gr-button { font-weight: 600; }
+        .gr-markdown { font-size: 1.1em; }
+    """) as demo:
+        gr.Markdown("""
+        <div style='display: flex; align-items: center; gap: 12px;'>
+            <span style='font-size:2.2em;'>🤖</span>
+            <span style='font-family: Fira Mono, monospace; font-size: 1.7em; color: #f59e42;'>ChatbotTherapy</span>
+        </div>
+        <div style='margin-top: 0.5em; color: #334155; font-size: 1.1em;'>
+            Welcome! This is your <b>offline AI therapist</b>.<br>
+            <span style='color:#0d9488;'>Reflect, heal, grow</span> — with a touch of <span style='font-family: Fira Mono, monospace; color: #6366f1;'>AI</span>.
+        </div>
+        """, elem_id="header")
 
         with gr.Row():
-            clear_btn = gr.Button("Clear All (Memory + Logs)")
-            weekly_btn = gr.Button("Show Weekly Summary")
-            monthly_btn = gr.Button("Show Monthly Summary")
-            overall_btn = gr.Button("Show Overall Summary")
-            search_btn = gr.Button("Search History")
+            clear_btn = gr.Button("🧹 Clear All (Memory + Logs)")
+            weekly_btn = gr.Button("📅 Weekly Summary")
+            monthly_btn = gr.Button("📆 Monthly Summary")
+            overall_btn = gr.Button("📊 Overall Summary")
+            search_btn = gr.Button("🔍 Search History")
 
         with gr.Row():
             with gr.Column():
-                reflection_output = gr.Textbox(label="Reflection", lines=4, interactive=False)
-                questions_output = gr.Textbox(label="Follow-up Questions", lines=3, interactive=False)
-                suggestions_output = gr.Textbox(label="Suggestions", lines=3, interactive=False)
-                user_input = gr.Textbox(placeholder="Type your message and press Enter", show_label=False)
+                reflection_output = gr.Textbox(label="🪞 Reflection", lines=4, interactive=False, elem_id="reflection_box")
+                questions_output = gr.Textbox(label="❓ Follow-up Questions", lines=3, interactive=False, elem_id="questions_box")
+                suggestions_output = gr.Textbox(label="💡 Suggestions", lines=3, interactive=False, elem_id="suggestions_box")
+                user_input = gr.Textbox(placeholder="Type your message and press Enter", show_label=False, elem_id="user_input_box")
 
         # Events
         user_input.submit(chat, inputs=user_input, outputs=[reflection_output, questions_output, suggestions_output, user_input])
