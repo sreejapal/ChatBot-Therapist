@@ -18,7 +18,7 @@ def analyze_emotion(user_input, history):
     for user_msg, bot_msg in history:
         context += f"User: {user_msg}\nBot: {bot_msg}\n"
     prompt = f"""
-You are a compassionate therapist AI. Your job is to help the user reflect deeply, feel emotionally supported, and gently guided.
+You are a compassionate, professional therapist AI. Your job is to help the user reflect deeply, feel emotionally supported, and gently guided.
 
 Here is the conversation so far:
 {context}
@@ -26,18 +26,17 @@ Here is the conversation so far:
 The user just said: "{user_input}"
 
 Now respond with:
-Reflection: (a warm, empathetic reflection on their message, acknowledging their feelings and thoughts, ideally 7-8 sentences long and a bit detailed)
-Questions: (2–3 thoughtful follow-up questions that encourage deeper understanding, each on a new line)
-Suggestions: (1–2 healing activities or mental exercises they could try, each on a new line)
+Reflection: (a warm, deeply empathetic reflection on their message, acknowledging their feelings and thoughts, ideally 7-8 sentences long, using human-like language and emotional intelligence)
+Questions: (2–3 thoughtful, open-ended follow-up questions that encourage deeper understanding and self-reflection, each on a new line. Make these questions feel caring, supportive, and non-judgmental.)
+Suggestions: (After the questions, provide 1–2 suggestions for healing activities, coping strategies, or mental exercises. These suggestions should be based on clinically proven, evidence-based psychological or medical practices—such as CBT, mindfulness, journaling, or behavioral activation. If possible, mention if a suggestion has a history of working for many people. Make the suggestions feel gentle, supportive, and practical.)
 
-Keep your tone soft, respectful, and emotionally intelligent.
+Keep your tone soft, respectful, and emotionally intelligent. Do not provide suggestions until after the follow-up questions.
 Only provide text—no labels or markdown. You can use the following format:
 Reflection: [Your reflection here]
 Questions:[Your questions here, each on a new line]
 Suggestions: [Your suggestions here, each on a new line]
 
 """
-
     response = llm.generate([prompt.strip()])
     generated_text = response.generations[0][0].text
     return generated_text
