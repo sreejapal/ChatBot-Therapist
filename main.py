@@ -76,6 +76,25 @@ def chatbot_ui():
         font_mono=["Fira Mono", "Consolas", "monospace"]
     )
     with gr.Blocks(theme=custom_theme, css=custom_css) as demo:
+        # Falling leaves animation container and script
+        gr.HTML("""
+        <div id='leaves-container'></div>
+        <script>
+        function randomBetween(a, b) { return a + Math.random() * (b - a); }
+        function createLeaf(i) {
+            var leaf = document.createElement('div');
+            leaf.className = 'leaf';
+            leaf.style.left = randomBetween(0, 98) + 'vw';
+            leaf.style.animationDelay = randomBetween(0, 8) + 's';
+            leaf.style.animationDuration = randomBetween(6, 12) + 's';
+            leaf.style.transform = 'rotate(' + randomBetween(0, 360) + 'deg)';
+            document.getElementById('leaves-container').appendChild(leaf);
+        }
+        if (typeof window !== 'undefined' && document.getElementById('leaves-container')) {
+            for (var i = 0; i < 16; i++) createLeaf(i);
+        }
+        </script>
+        """)
         gr.Markdown("""
         <div style='display: flex; align-items: center; gap: 12px;'>
             <span style='font-size:2.2em;'>🤖</span>
