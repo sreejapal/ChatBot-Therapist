@@ -66,28 +66,24 @@ def search_chat_history(query):
     return "\n\n".join([f"🧍 {u}\n🤖 {b}" for u, b in results])
 
 def chatbot_ui():
+    with open("frontend/styles.css", "r") as f:
+        custom_css = f.read()
     custom_theme = gr.themes.Base(
-        primary_hue="orange",
+        primary_hue="green",
         secondary_hue="teal",
         neutral_hue="slate",
         font=["Inter", "Segoe UI", "sans-serif"],
         font_mono=["Fira Mono", "Consolas", "monospace"]
     )
-    with gr.Blocks(theme=custom_theme, css="""
-        body { background: linear-gradient(135deg, #f8fafc 0%, #fbeee6 100%); }
-        .gr-box, .gr-textbox, .gr-button { box-shadow: 0 2px 8px rgba(0,0,0,0.04); border-radius: 10px; }
-        .gr-textbox { border: 1.5px solid #fbbf24; }
-        .gr-button { font-weight: 600; }
-        .gr-markdown { font-size: 1.1em; }
-    """) as demo:
+    with gr.Blocks(theme=custom_theme, css=custom_css) as demo:
         gr.Markdown("""
         <div style='display: flex; align-items: center; gap: 12px;'>
             <span style='font-size:2.2em;'>🤖</span>
-            <span style='font-family: Fira Mono, monospace; font-size: 1.7em; color: #f59e42;'>ChatbotTherapy</span>
+            <span style='font-family: Fira Mono, monospace; font-size: 1.7em; color: #388e3c;'>ChatbotTherapy</span>
         </div>
-        <div style='margin-top: 0.5em; color: #334155; font-size: 1.1em;'>
+        <div style='margin-top: 0.5em; color: #234c2e; font-size: 1.1em;'>
             Welcome! This is your <b>offline AI therapist</b>.<br>
-            <span style='color:#0d9488;'>Reflect, heal, grow</span> — with a touch of <span style='font-family: Fira Mono, monospace; color: #6366f1;'>AI</span>.
+            <span style='color:#388e3c;'>Reflect, heal, grow</span> — with a touch of <span style='font-family: Fira Mono, monospace; color: #388e3c;'>AI</span>.
         </div>
         """, elem_id="header")
 
