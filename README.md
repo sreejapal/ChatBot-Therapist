@@ -67,24 +67,41 @@ Built using **LangChain**, **ChromaDB**, **Ollama**, and **Flask**, this app run
 
 ## 🚀 Getting Started
 
-### 1. Clone the repo
+### **Option 1: Quick Install (Recommended)**
+
+#### **Windows:**
+```bash
+# Download and run the installer
+install.bat
+```
+
+#### **Linux/macOS:**
+```bash
+# Make script executable and run
+chmod +x install.sh
+./install.sh
+```
+
+### **Option 2: Manual Installation**
+
+#### 1. Clone the repo
 ```bash
 git clone https://github.com/sreejapal/ChatBot-Therapist.git
 cd ChatBot-Therapist
 ```
 
-### 2. Create and activate virtual environment
+#### 2. Create and activate virtual environment
 ```bash
 python -m venv venv
 source venv/bin/activate    # or `venv\Scripts\activate` on Windows
 ```
 
-### 3. Install dependencies
+#### 3. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### 4. Install and start Ollama
+#### 4. Install and start Ollama
 ```bash
 # Install Ollama (if not already installed)
 # Visit: https://ollama.ai/download
@@ -96,13 +113,83 @@ ollama pull mistral
 ollama serve
 ```
 
-### 5. Run the app
+#### 5. Run the app
 ```bash
 python main.py
 ```
 
-### 6. Open your browser
+#### 6. Open your browser
 The app will automatically open at: **http://127.0.0.1:5000**
+
+### **Option 3: Docker Deployment**
+
+If you prefer containerized deployment:
+
+```bash
+# Build and run with Docker Compose
+docker-compose up -d
+
+# Or build manually
+docker build -t chatbot-therapy .
+docker run -p 5000:5000 chatbot-therapy
+```
+
+---
+
+## 🌐 Deployment Options
+
+### **Local Deployment (Recommended)**
+This is the **primary deployment model** for maximum privacy and security:
+
+- ✅ **100% Private**: No data leaves your device
+- ✅ **No Internet Required**: Works completely offline
+- ✅ **No Server Costs**: Runs on your own computer
+- ✅ **HIPAA Compliant**: No cloud storage of sensitive data
+- ✅ **Full Control**: You own all your data
+
+### **On-Premise Deployment**
+For organizations or advanced users:
+
+- **Docker**: Use the provided `docker-compose.yml`
+- **Virtual Machine**: Deploy on private servers
+- **Local Network**: Share within secure networks
+
+### **Cloud Deployment (Not Recommended)**
+⚠️ **Warning**: Cloud deployment has significant privacy and cost concerns:
+
+- ❌ **Privacy Risks**: Mental health data in the cloud
+- ❌ **High Costs**: Running AI models on cloud servers ($50-200/month)
+- ❌ **Legal Issues**: Mental health data regulations
+- ❌ **Complexity**: Managing Ollama in cloud environments
+
+If you must deploy to cloud, consider:
+- **Railway** or **Render** for AI workloads
+- **AWS/GCP/Azure** for enterprise deployments
+- **Self-hosted VPS** for more control
+
+---
+
+## 👥 Who Uses This Project?
+
+### **Primary Users:**
+- **Individuals seeking mental health support**
+- **Privacy-conscious users** who don't want cloud-based therapy apps
+- **People in remote areas** with limited access to therapy
+- **Those supplementing professional therapy** with additional support
+- **Tech-savvy users** comfortable with local software
+
+### **Secondary Users:**
+- **Researchers** studying AI in mental health
+- **Developers** learning about LangChain and Ollama
+- **Small organizations** wanting private mental health tools
+- **Educational institutions** teaching AI and mental health
+
+### **Use Cases:**
+- **Daily emotional check-ins**
+- **Crisis prevention and early intervention**
+- **Therapy session preparation and follow-up**
+- **Emotional pattern recognition**
+- **Self-reflection and personal growth**
 
 ---
 
@@ -156,12 +243,25 @@ The app will automatically open at: **http://127.0.0.1:5000**
 - **No Data Sharing**: Nothing is sent to external servers
 - **Secure Storage**: Data encrypted and stored locally
 - **Session Isolation**: Each browser session is independent
+- **No Telemetry**: No usage data is collected or transmitted
 
 ---
 
-## 🚨 Disclaimer
+## 🚨 Important Disclaimers
 
-This AI is a support tool, not a replacement for licensed therapists. Always consult a professional for serious mental health concerns. The app is designed to complement, not replace, professional mental health care.
+### **Medical Disclaimer**
+This AI is a **support tool**, not a replacement for licensed therapists. 
+
+- ⚠️ **Not for Crisis Situations**: If you're in crisis, contact emergency services immediately
+- ⚠️ **Not Medical Advice**: Always consult healthcare professionals for serious concerns
+- ⚠️ **Complementary Tool**: Designed to supplement, not replace, professional care
+- ⚠️ **Self-Responsibility**: Users are responsible for their own mental health decisions
+
+### **Data Privacy**
+- All data is stored locally on your device
+- No data is transmitted to external servers
+- You have full control over your data
+- Data can be exported or deleted at any time
 
 ---
 
@@ -182,4 +282,28 @@ Built to promote emotional independence, healing, and tech-driven well-being.
 - 📊 Improved emotion tracking and analytics
 - 🛡️ Better error handling and user experience
 - 🎯 Two-row button layout for better organization
+- 🐳 Added Docker support for easier deployment
+- 📦 Added installation scripts for all platforms
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+## 📞 Support
+
+If you need help or have questions:
+- 📖 Check the documentation in this README
+- 🐛 Report bugs by opening an issue on GitHub
+- 💡 Suggest features through GitHub issues
+- 📧 Contact the author for private support
 
