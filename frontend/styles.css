@@ -222,3 +222,22 @@ img {
 .close:hover {
     color: #000;
 }
+
+/* Additional Gradio-specific styles */
+.gr-block, .gr-box, .gr-textbox, .gr-button {
+    border-radius: 14px !important;
+    box-shadow: 0 2px 12px rgba(60, 120, 80, 0.06);
+}
+
+.gr-textbox {
+    border: 1.5px solid #81c784 !important;
+    background: #f9fff9 !important;
+}
+
+.gr-markdown {
+    background: rgba(232, 245, 233, 0.7);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}

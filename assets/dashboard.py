@@ -3,8 +3,8 @@ import json
 from datetime import datetime, timedelta
 from collections import Counter
 import matplotlib.pyplot as plt
-from models.ollama_runner import load_llm
 import pandas as pd
+from models.ollama_runner import load_llm
 
 LOG_FILE = "data/emotion_log.json"
 
