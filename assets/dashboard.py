@@ -3,8 +3,11 @@ import json
 from datetime import datetime, timedelta
 from collections import Counter
 import matplotlib.pyplot as plt
+from models.ollama_runner import load_llm
 
 LOG_FILE = "data/emotion_log.json"
+
+llm = load_llm()
 
 def load_logs():
     if not os.path.exists(LOG_FILE):
@@ -58,4 +61,17 @@ def generate_overall_summary():
     logs = load_logs()
     summary = get_summary(logs)
     chart_path = plot_emotion_graph(logs, "data/overall_emotion_chart.png")
-    return summary, chart_path
+    # Personalized analysis
+    user_history = '\n'.join([log["user_input"] for log in logs if log.get("user_input")])
+    if user_history:
+        prompt = f"""
+You are a clinical psychology assistant AI. Given the following therapy chat history, analyze and summarize the likely root causes and triggers of the user's mental health issues. Make your analysis personalized and reference patterns or repeated themes. The more data provided, the more detailed and accurate your analysis should be. If possible, suggest what might be underlying issues, but always include a disclaimer that this is not a medical diagnosis.\n\nTherapy chat history:\n{user_history}\n\nRespond with:\nRoot Causes and Triggers: (A detailed, empathetic, and personalized analysis based on the user's history. Reference patterns, repeated themes, and possible underlying issues. End with a disclaimer that this is not a medical diagnosis.)\n"""
+        try:
+            response = llm.generate([prompt.strip()])
+            analysis = response.generations[0][0].text.strip()
+        except Exception:
+            analysis = "(Could not generate personalized analysis.)"
+    else:
+        analysis = "Not enough data for a personalized analysis."
+    full_summary = summary + "\n\n" + analysis
+    return full_summary, chart_path

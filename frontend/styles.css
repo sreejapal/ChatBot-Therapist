@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(135deg, #e8f5e9 0%, #ffffff 100%);
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    color: #234c2e;
+}
+
+.gr-block, .gr-box, .gr-textbox, .gr-button {
+    border-radius: 14px !important;
+    box-shadow: 0 2px 12px rgba(60, 120, 80, 0.06);
+}
+
+.gr-textbox {
+    border: 1.5px solid #81c784 !important;
+    background: #f9fff9 !important;
+}
+
+.gr-button {
+    background: linear-gradient(90deg, #a5d6a7 0%, #e8f5e9 100%) !important;
+    color: #234c2e !important;
+    border: none !important;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.gr-button:hover {
+    background: linear-gradient(90deg, #81c784 0%, #c8e6c9 100%) !important;
+}
+
+.gr-markdown {
+    background: rgba(232, 245, 233, 0.7);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+#header {
+    background: linear-gradient(90deg, #e8f5e9 60%, #ffffff 100%);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(60, 120, 80, 0.08);
+    margin-bottom: 18px;
+}
