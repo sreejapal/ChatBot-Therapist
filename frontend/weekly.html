@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Dashboard - ChatbotTherapy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header id="header">
+            <span class="logo">🤖</span>
+            <span class="title">Weekly Dashboard</span>
+            <div class="subtitle">
+                Your emotional journey this week
+            </div>
+        </header>
+        <div class="button-row">
+            <a href="index.html" class="gr-button">🏠 Chat</a>
+            <a href="monthly.html" class="gr-button">📆 Monthly</a>
+            <a href="overall.html" class="gr-button">📊 Overall</a>
+            <a href="search.html" class="gr-button">🔍 Search</a>
+        </div>
+        <div class="dashboard-section">
+            <div class="output-group">
+                <label>📋 Summary</label>
+                <div id="summary-output" class="output-box"></div>
+            </div>
+            <div class="output-group">
+                <label>📊 Emotion Frequency</label>
+                <img id="emotion-chart" style="max-width:100%;margin-bottom:1em;display:none;">
+            </div>
+            <div class="output-group">
+                <label>📈 Sentiment Trend</label>
+                <img id="sentiment-chart" style="max-width:100%;margin-bottom:1em;display:none;">
+            </div>
+            <div class="output-group">
+                <label>📈 Trend Summary</label>
+                <div id="trend-summary" class="output-box"></div>
+            </div>
+        </div>
+        <div class="qa-section">
+            <label>💬 Ask a question about your therapy history (this week):</label>
+            <select id="suggested-questions">
+                <option value="">-- Select a suggested question --</option>
+                <option>What were the main triggers for my emotions this week?</option>
+                <option>Do you see any signs of trauma or subconscious issues this week?</option>
+                <option>What patterns or repeated themes appeared in my emotions this week?</option>
+                <option>How did my emotions change over the week?</option>
+                <option>What advice did you give me about stress or anxiety this week?</option>
+            </select>
+            <input id="qa-input" type="text" placeholder="Type your question..." style="width:100%;margin-top:8px;">
+            <button id="qa-submit" class="gr-button" style="margin-top:8px;">Ask</button>
+            <div id="qa-answer" class="output-box" style="margin-top:8px;"></div>
+        </div>
+    </div>
+    <script src="weekly.js"></script>
+</body>
+</html> 

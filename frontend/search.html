@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search & History - ChatbotTherapy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="leaves-container"></div>
+    <div class="container">
+        <header id="header">
+            <span class="logo">🤖</span>
+            <span class="title">Search & History</span>
+            <div class="subtitle">
+                Explore your therapy journey
+            </div>
+        </header>
+        <div class="button-row">
+            <a href="index.html" class="gr-button">🏠 Chat</a>
+            <a href="weekly.html" class="gr-button">📅 Weekly</a>
+            <a href="monthly.html" class="gr-button">📆 Monthly</a>
+            <a href="overall.html" class="gr-button">📊 Overall</a>
+        </div>
+        <div class="search-section">
+            <label>🔍 Search Your Therapy Sessions:</label>
+            <input id="search-query" type="text" placeholder="e.g. times I felt anxious" style="width:100%;margin-top:8px;">
+            <button id="search-submit" class="gr-button" style="margin-top:8px;">Search Sessions</button>
+            <div id="search-output" class="output-box" style="margin-top:8px;"></div>
+        </div>
+        <div class="history-section" style="margin-top:2em;">
+            <label>📜 All Therapy Sessions:</label>
+            <button id="history-refresh" class="gr-button" style="margin-bottom:8px;">Refresh Sessions</button>
+            <div id="history-output" class="output-box" style="max-height:350px;overflow:auto;"></div>
+        </div>
+    </div>
+    
+    <!-- Session Detail Modal -->
+    <div id="session-modal" class="modal hidden">
+        <div class="modal-content" style="max-width:90%;max-height:90%;">
+            <span class="close" id="close-session">&times;</span>
+            <h3 id="session-title">Session Details</h3>
+            <div id="session-conversation" style="max-height:400px;overflow-y:auto;margin-top:1em;"></div>
+        </div>
+    </div>
+    
+    <script src="search.js"></script>
+    <script>
+    // Falling leaves animation
+    function randomBetween(a, b) { return a + Math.random() * (b - a); }
+    function createLeaf(i) {
+        var leaf = document.createElement('div');
+        leaf.className = 'leaf';
+        leaf.style.left = randomBetween(0, 98) + 'vw';
+        leaf.style.animationDelay = randomBetween(0, 8) + 's';
+        leaf.style.animationDuration = randomBetween(6, 12) + 's';
+        leaf.style.transform = 'rotate(' + randomBetween(0, 360) + 'deg)';
+        document.getElementById('leaves-container').appendChild(leaf);
+    }
+    for (var i = 0; i < 16; i++) createLeaf(i);
+    </script>
+</body>
+</html> 

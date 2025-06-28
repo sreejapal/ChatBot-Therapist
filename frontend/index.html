@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatbotTherapy</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header id="header">
+            <span class="logo">🤖</span>
+            <span class="title">ChatbotTherapy</span>
+            <div class="subtitle">
+                Welcome! This is your <b>offline AI therapist</b>.<br>
+                <span class="highlight">Reflect, heal, grow</span> — with a touch of <span class="highlight">AI</span>.
+            </div>
+        </header>
+        <div class="button-row">
+            <div class="row">
+                <button id="clear-btn" class="gr-button small">🧹 Clear All</button>
+                <button id="new-session-btn" class="gr-button">🆕 New Session</button>
+                <button id="session-info-btn" class="gr-button">ℹ️ Session Info</button>
+                <a href="search.html" class="gr-button">🔍 Search</a>
+            </div>
+            <div class="row">
+                <a href="weekly.html" class="gr-button">📅 Weekly</a>
+                <a href="monthly.html" class="gr-button">📆 Monthly</a>
+                <a href="overall.html" class="gr-button">📊 Overall</a>
+            </div>
+        </div>
+        <div class="chat-section">
+            <div class="output-group">
+                <label>🪞 Reflection</label>
+                <div id="reflection-output" class="output-box"></div>
+            </div>
+            <div class="output-group">
+                <label>❓ Follow-up Questions</label>
+                <div id="questions-output" class="output-box"></div>
+            </div>
+            <div class="output-group">
+                <label>💡 Suggestions</label>
+                <div id="suggestions-output" class="output-box"></div>
+            </div>
+            <input id="user-input" type="text" placeholder="Type your message and press Enter" autocomplete="off">
+        </div>
+        <div id="summary-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="close-summary">&times;</span>
+                <div id="summary-content"></div>
+                <img id="summary-img" style="max-width:100%;margin-top:1em;display:none;">
+            </div>
+        </div>
+        <div id="search-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="close-search">&times;</span>
+                <input id="search-query" type="text" placeholder="Search keyword...">
+                <button id="search-submit">Search</button>
+                <div id="search-output"></div>
+            </div>
+        </div>
+        
+        <!-- Session Info Modal -->
+        <div id="session-info-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close" id="close-session-info">&times;</span>
+                <h3>Current Session Information</h3>
+                <div id="session-info-content">
+                    <div class="loading-spinner">Loading session info...</div>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button id="start-new-session-btn" class="gr-button">🆕 Start New Session</button>
+                    <button id="view-session-history-btn" class="gr-button">📜 View Session History</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html> 

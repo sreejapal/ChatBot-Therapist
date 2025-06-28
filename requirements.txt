@@ -3,7 +3,6 @@ langchain
 chromadb
 ollama
 openai
-gradio
 tiktoken
 matplotlib
 pandas
@@ -13,6 +12,7 @@ langchain-core
 langchain-community 
 langchain-ollama 
 flask
+flask-cors
 psutil
 requests
 
