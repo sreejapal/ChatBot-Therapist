@@ -10,7 +10,7 @@ setup(
     name="chatbot-therapy",
     version="2.0.0",
     author="Sreeja Pal",
-    author_email="your.email@example.com",
+    author_email="sreejapal999.com",
     description="A privacy-first, offline AI-powered mental health assistant",
     long_description=long_description,
     long_description_content_type="text/markdown",
